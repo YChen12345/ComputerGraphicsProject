@@ -170,6 +170,7 @@ void GameManager::NewGame() {
 			core->beginFrame();
 			window->checkInput();
 			window->MouseInWindowLoop();
+			clock = 0;
 			if (window->GetKeyDown(VK_ESCAPE))
 			{
 				quit = true;
@@ -199,7 +200,7 @@ void GameManager::NewGame() {
 				quit = true;
 			}
 			if (totalTime>clock) {
-				totalTime = 0;
+				clock = 0;
 				System::gameState = 1;
 			}
 			System::run();
