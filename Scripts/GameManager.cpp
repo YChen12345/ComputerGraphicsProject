@@ -170,7 +170,7 @@ void GameManager::NewGame() {
 			core->beginFrame();
 			window->checkInput();
 			window->MouseInWindowLoop();
-			clock = 0;
+			totalTime = 0;
 			if (window->GetKeyDown(VK_ESCAPE))
 			{
 				quit = true;
@@ -200,7 +200,7 @@ void GameManager::NewGame() {
 				quit = true;
 			}
 			if (totalTime>clock) {
-				clock = 0;
+				totalTime = 0;
 				System::gameState = 1;
 			}
 			System::run();
@@ -216,11 +216,11 @@ void GameManager::NewGame() {
 			{
 				quit = true;
 			}
-			clock += timer->deltaTime;
-			if (clock > 2) {
+			totalTime += timer->deltaTime;
+			if (totalTime > 2) {
 				if (window->GetKeyDown(VK_RETURN) || window->GetKeyDown(VK_SPACE) || window->GetMouseButtonDown(0))
 				{
-					clock = 0;
+					totalTime = 0;
 					System::gameState = -1;
 				}
 			}
@@ -242,11 +242,11 @@ void GameManager::NewGame() {
 			{
 				quit = true;
 			}
-			clock += timer->deltaTime;
-			if (clock > 2) {
+			totalTime += timer->deltaTime;
+			if (totalTime > 2) {
 				if (window->GetKeyDown(VK_RETURN) || window->GetKeyDown(VK_SPACE) || window->GetMouseButtonDown(0))
 				{
-					clock = 0;
+					totalTime = 0;
 					System::gameState = -1;
 				}
 			}
