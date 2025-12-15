@@ -245,6 +245,7 @@ void GameManager::NewGame() {
 			if (clock > 2) {
 				if (window->GetKeyDown(VK_RETURN) || window->GetKeyDown(VK_SPACE) || window->GetMouseButtonDown(0))
 				{
+					clock = 0;
 					System::gameState = -1;
 				}
 			}
